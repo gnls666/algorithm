@@ -85,79 +85,79 @@ using namespace std;
 
 
 
-int main()
-{
-	int n;
-	cin>>n;
-	int cnt = 0;
-	multimap<int, int> m[n];
-	int book1[1010], book2[1010];
-	int ti[n], me[n];
-	for(int i = 0; i < 1010; i++)
-	{
-		book1[i] = -1;
-	}
-	for(int i = 0; i < n; i++)
-	{
-		ti[i] = 0;
-		me[i] = 0;
-	}
+// int main()
+// {
+// 	int n;
+// 	cin>>n;
+// 	int cnt = 0;
+// 	multimap<int, int> m[n];
+// 	int book1[1010], book2[1010];
+// 	int ti[n], me[n];
+// 	for(int i = 0; i < 1010; i++)
+// 	{
+// 		book1[i] = -1;
+// 	}
+// 	for(int i = 0; i < n; i++)
+// 	{
+// 		ti[i] = 0;
+// 		me[i] = 0;
+// 	}
 
-	while(1)
-	{
-		int a;
-		char b;
-		cin>>a>>b;
-		getchar();
-		int hh, mm;
-		scanf("%02d:%02d", &hh, &mm);
-		if(b == 'S')
-		{
-			book1[a] = hh * 60 + mm;
+// 	while(1)
+// 	{
+// 		int a;
+// 		char b;
+// 		cin>>a>>b;
+// 		getchar();
+// 		int hh, mm;
+// 		scanf("%02d:%02d", &hh, &mm);
+// 		if(b == 'S')
+// 		{
+// 			book1[a] = hh * 60 + mm;
 			
-		}
+// 		}
 			
-		else
-		{
-			book2[a] = hh * 60 + mm;
-			if(book1[a] != -1)
-			{
-				me[cnt] += book2[a] - book1[a];
-				ti[cnt]++;
-                book1[a] = -1;
+// 		else
+// 		{
+// 			book2[a] = hh * 60 + mm;
+// 			if(book1[a] != -1)
+// 			{
+// 				me[cnt] += book2[a] - book1[a];
+// 				ti[cnt]++;
+//                 book1[a] = -1;
 
-			}
+// 			}
 				
 
-		}
-		if(a == 0)
-		{
-			cnt++;
-			for(int i = 0; i < 1010; i++)
-			{
-				book1[i] = -1;
-			}
-			if(cnt == n)
-				break;
-		}
+// 		}
+// 		if(a == 0)
+// 		{
+// 			cnt++;
+// 			for(int i = 0; i < 1010; i++)
+// 			{
+// 				book1[i] = -1;
+// 			}
+// 			if(cnt == n)
+// 				break;
+// 		}
 
-	}
-	for(int i = 0; i < n; i++)
-	{
-		if(ti[i])
-		{
+// 	}
+// 	for(int i = 0; i < n; i++)
+// 	{
+// 		if(ti[i])
+// 		{
 			
-			double t = me[i] * 1.0 / ti[i];
-			cout<<ti[i]<<" "<<int(t + 0.5)<<endl;
+// 			double t = me[i] * 1.0 / ti[i];
+// 			cout<<ti[i]<<" "<<int(t + 0.5)<<endl;
 			
-		}
-		else
-			cout<<"0 0"<<endl;
-	}
+// 		}
+// 		else
+// 			cout<<"0 0"<<endl;
+// 	}
 
-	return 0;
-    //完成
-}
+// 	return 0;
+//     //完成
+// }
 
 
 
