@@ -3,42 +3,42 @@
 using namespace std;
 
 
-// int main()
-// {
-// 	int n;
-// 	cin>>n;
-// 	vector<int> v1, v2;
-// 	for(int i = 0; i < n; i++)
-// 	{
-// 		int inte;
-// 		cin>>inte;
-// 		v1.push_back(inte);
-// 	}
-// 	for(int i = 0; i < n; i++)
-// 	{
-// 		int inte;
-// 		cin>>inte;
-// 		v2.push_back(inte);
-// 	}
-// 	stack<int> s;
-// 	int len = n;
-// 	int cnt = 0;
-// 	queue<int> q;
-// 	while(1)
-// 	{
-// 		if(v2[cnt] == v1[len - 1])
-// 		{
-// 			len = 
+int main()
+{
+	int n;
+	cin>>n;
+	vector<int> v1, v2;
+	for(int i = 0; i < n; i++)
+	{
+		int inte;
+		cin>>inte;
+		v1.push_back(inte);
+	}
+	for(int i = 0; i < n; i++)
+	{
+		int inte;
+		cin>>inte;
+		v2.push_back(inte);
+	}
+	stack<int> s;
+	int len = n;
+	int cnt = 0;
+	queue<int> q;
+	while(1)
+	{
+		if(v2[cnt] == v1[len - 1])
+		{
+			break;
 
-// 		}
-// 		cnt = (cnt + 1) % len;
+		}
+		cnt = (cnt + 1) % len;
 
-// 	}
+	}
 
 		
 
-// 	return 0;
-// }
+	return 0;
+}
 
 // #include <iostream>
 // #include <queue>
