@@ -1,42 +1,87 @@
 #include<bits/stdc++.h>
 
 using namespace std;
+#define MAX 0x3f3f3f3f
+int G[1000][1000], vis[1000], path[1000];
+int ResT[1000], fastway[1000], ResTC[1000], minway[1000];
+int n, m, s, d;
+
+void Dij(int s)
+{
+	fastway[s] = 1;
+
+	for(int i = 0; i < n; i++)
+	{
+		minway[i] = MAX;
+
+	}
+
+	minway[s] = 0;
+
+	ResTC[s] = ResT[s];
+
+	for(int i = 0; i < n; i++)
+	{
+		int u = -1;
+		for(int j = 0; j < n; j++)
+			if(!vis[j] && (u == -1 || minway[j] < minway[u]))
+				u = j;
+		vis[u] = 1;
+		for(int j = 0; j < n; j++)
+		{
+			if(minway[u] + G[u][j] < minway[j])
+			{
+				minway[j] = minway[u] + G[u][j];
+				path[j] = u;
+				fastway[j] = fastway[u];
+				ResTC[j] = ResT[j] + ResTC[u];
+			}
+			else if(minway[u] + G[u][j] == minway[j])
+			{
+				fastway[j] += fastway[u];
+				if(ResTC[j] < ResTC[j] + ResT[u])
+				{
+					ResTC[j] += ResT[u];
+					path[j] = u;
+				}
+			}
+		}
+	}
+
+}
+void print(int k)
+{
+	if(k == s)
+	{
+		cout<<k;
+		return;
+	}	
+	print(path[k]);
+	cout<<' '<<k;
+}
 
 
 int main()
 {
-	int n;
-	cin>>n;
-	vector<int> v1, v2;
-	for(int i = 0; i < n; i++)
-	{
-		int inte;
-		cin>>inte;
-		v1.push_back(inte);
-	}
-	for(int i = 0; i < n; i++)
-	{
-		int inte;
-		cin>>inte;
-		v2.push_back(inte);
-	}
-	stack<int> s;
-	int len = n;
-	int cnt = 0;
-	queue<int> q;
-	while(1)
-	{
-		if(v2[cnt] == v1[len - 1])
-		{
-			break;
-
-		}
-		cnt = (cnt + 1) % len;
-
-	}
-	//vs真的好慢
 	
-
+	cin>>n>>m>>s>>d;
+	
+	for(int i = 0; i < n; i++)
+	{
+		cin>>ResT[i];
+		vis[i] = 0;
+		for(int j = 0; j < n; j++)
+			G[i][j] = MAX;
+	}
+	for(int i = 0; i < m; i++)
+	{
+		int x, y, z;
+		cin>>x>>y>>z;
+		G[x][y] = G[y][x] = z;
+	}
+	Dij(s);
+	cout<<fastway[d]<<" "<<ResTC[d]<<endl;
+	print(d);
 	return 0;
 }
 
