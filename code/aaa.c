@@ -19,7 +19,7 @@ typedef struct PCBQueue PCBQueue;
 
 PCB* InitPCBQuee(PCB* process)
 {
-	PCB*queue = (PCB*)malloc(sizeof(PCB));
+	PCB*queue = (PCB*)malloc(sizeof(PCB));gi
 	if (queue == NULL)
 	{
 		return NULL;c
