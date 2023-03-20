@@ -6,7 +6,7 @@ struct ProcessOfMy
 	int timeRequire;
 	//1为就绪态，0为运行态，-1为已经完成
 	int currentState;
-	ProcessOfMy* next;
+	ProcessOfMy * next;
 };
 typedef struct ProcessOfMy PCB;
 struct PCBQueue
@@ -19,10 +19,10 @@ typedef struct PCBQueue PCBQueue;
 
 PCB* InitPCBQuee(PCB* process)
 {
-	PCB*queue = (PCB*)malloc(sizeof(PCB));gi
+	PCB*queue = (PCB*)malloc(sizeof(PCB));
 	if (queue == NULL)
 	{
-		return NULL;c
+		return NULL;
 	}
 	queue->next=NULL;
 	process = queue;
