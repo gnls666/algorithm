@@ -9,11 +9,6 @@ int main()
     int city[n];
     for(int i = 0; i < n; i++)
         cin>>city[i];
-    for(int i = 0; i < m; i++)
-    {
-        
-
-    }
 
 
 
